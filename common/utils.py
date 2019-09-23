@@ -1,3 +1,4 @@
+import pytz
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -41,12 +42,17 @@ TYPECHOICES = (
     ('RESELLER', 'RESELLER'),
 )
 
+ROLES = (
+    ('ADMIN', 'ADMIN'),
+    ('USER', 'USER'),
+)
+
 LEAD_STATUS = (
     ('assigned', 'Assigned'),
     ('in process', 'In Process'),
     ('converted', 'Converted'),
     ('recycled', 'Recycled'),
-    ('dead', 'Dead')
+    ('closed', 'Closed')
 )
 
 
@@ -533,3 +539,52 @@ CURRENCY_CODES = (
     ('ZMK', _('ZMK, Kwacha')),
     ('ZWL', _('ZWL, Dollar')),
 )
+
+
+def return_complete_address(self):
+    address = ""
+    if self.address_line:
+        address += self.address_line
+    if self.street:
+        if address:
+            address += ", " + self.street
+        else:
+            address += self.street
+    if self.city:
+        if address:
+            address += ", " + self.city
+        else:
+            address += self.city
+    if self.state:
+        if address:
+            address += ", " + self.state
+        else:
+            address += self.state
+    if self.postcode:
+        if address:
+            address += ", " + self.postcode
+        else:
+            address += self.postcode
+    if self.country:
+        if address:
+            address += ", " + self.get_country_display()
+        else:
+            address += self.get_country_display()
+    return address
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
+def convert_to_custom_timezone(custom_date, custom_timezone, to_utc=False):
+    user_time_zone = pytz.timezone(custom_timezone)
+    if to_utc:
+        custom_date = user_time_zone.localize(custom_date.replace(tzinfo=None))
+        user_time_zone = pytz.UTC
+    return custom_date.astimezone(user_time_zone)

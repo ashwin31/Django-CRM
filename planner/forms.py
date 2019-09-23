@@ -1,11 +1,11 @@
 from django import forms
-from planner.models import Event, Reminder
+from planner.models import Reminder
 
 
 # class EventForm(forms.ModelForm):
 #     class Meta:
 #         model = Event
-#         fields = ['name', 'status', 'start_date', 'description', 'teams', 'assigned_to', 'attendees_user',
+#         fields = ['name', 'status', 'start_date', 'description', 'assigned_to', 'attendees_user',
 #                   'attendees_contacts', 'attendees_leads']
 
 #     start_date = forms.DateTimeField(input_formats=['%m/%d/%Y %H:%M:%S'], error_messages={
@@ -57,8 +57,10 @@ class ReminderForm(forms.ModelForm):
         model = Reminder
         fields = '__all__'
 
-    reminder_type = forms.ChoiceField(choices=(('Email', 'Email'), ('Popup', 'Popup')),
-                                      widget=forms.Select(attrs={'class': 'form-control input-sm'}))
+    reminder_type = forms.ChoiceField(choices=(
+        ('Email', 'Email'), ('Popup', 'Popup')),
+        widget=forms.Select(attrs={
+            'class': 'form-control input-sm'}))
     reminder_time = forms.ChoiceField(choices=(("0", "on time"),
                                                ("60", "1m before"),
                                                ("120", "2m before"),
@@ -71,7 +73,9 @@ class ReminderForm(forms.ModelForm):
                                                ("10800", "3h before"),
                                                ("18000", "5h before"),
                                                ("86400", "1d before")
-                                               ), widget=forms.Select(attrs={'class': 'form-control input-sm'}))
+                                               ),
+                                      widget=forms.Select(attrs={
+                                          'class': 'form-control input-sm'}))
 
 
 # class MeetingEventForm(EventForm):

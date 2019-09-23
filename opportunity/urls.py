@@ -1,19 +1,34 @@
-from django.conf.urls import url
-from opportunity import views
+from django.urls import path
+from opportunity.views import (
+    OpportunityListView, create_opportunity,
+    OpportunityDetailView, update_opportunity,
+    DeleteOpportunityView, GetContactView,
+    GetOpportunitiesView,
+    AddCommentView,
+    UpdateCommentView, DeleteCommentView, AddAttachmentsView, DeleteAttachmentsView)
 
-app_name = 'oppurtunity'
+
+app_name = 'opportunity'
 
 
 urlpatterns = [
-    url(r'^list/$', views.opp_list, name='list'),
-    url(r'^create/$', views.opp_create, name='save'),
-    url(r'^(?P<pk>\d+)/view/$', views.opp_view, name='opp_view'),
-    url(r'^(?P<pk>\d+)/edit/$', views.opp_edit, name='opp_edit'),
-    url(r'^(?P<pk>\d+)/delete/$', views.opp_remove, name='opp_remove'),
-    url(r'^contacts/$', views.contacts, name='contacts'),
-    url(r'^get/list/$', views.get_opportunity, name='get_opportunity'),
-    # comments
-    url(r'^comment/add/$', views.add_comment, name='add_comment'),
-    url(r'^comment/edit/$', views.edit_comment, name='edit_comment'),
-    url(r'^comment/remove/$', views.remove_comment, name='remove_comment'),
+    path('', OpportunityListView.as_view(), name='list'),
+    path('create/', create_opportunity, name='save'),
+    path('<int:pk>/view/', OpportunityDetailView.as_view(), name="opp_view"),
+    path('<int:pk>/edit/', update_opportunity, name="opp_edit"),
+    path('<int:pk>/delete/',
+         DeleteOpportunityView.as_view(), name="opp_remove"),
+
+    path('contacts/', GetContactView.as_view(), name="contacts"),
+    path('get/list/', GetOpportunitiesView.as_view(), name="get_opportunity"),
+
+    path('comment/add/', AddCommentView.as_view(), name="add_comment"),
+    path('comment/edit/', UpdateCommentView.as_view(), name="edit_comment"),
+    path('comment/remove/',
+         DeleteCommentView.as_view(), name="remove_comment"),
+
+    path('attachment/add/',
+         AddAttachmentsView.as_view(), name="add_attachment"),
+    path('attachment/remove/', DeleteAttachmentsView.as_view(),
+         name="remove_attachment"),
 ]

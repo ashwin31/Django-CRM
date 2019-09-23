@@ -1,23 +1,60 @@
 Django-CRM
 ==========
 
-Django-CRM provides a Customer relationship management dashboard where you can manage customers at sales of the organization. It Provides to manage leads information and its activity, track issues from leads, manage contacts to send emails of their progress.
+Django CRM is opensource CRM developed on django framework. It has all the basic features of CRM to start with. We welcome code contributions and feature requests via github.
 
-.. image:: https://travis-ci.org/MicroPyramid/Django-CRM.svg?branch=master
-   :target: https://travis-ci.org/MicroPyramid/Django-CRM
+.. list-table::
+   :header-rows: 1
+   :widths: 50 50 150 90
+   :stub-columns: 1
 
-.. image:: https://coveralls.io/repos/github/MicroPyramid/Django-CRM/badge.svg?branch=master
-   :target: https://coveralls.io/github/MicroPyramid/Django-CRM?branch=master
+   *  -  Build Status
+      -  Codacy
+      -  Docker
+      -  Support
+   *  -   .. image:: https://travis-ci.org/MicroPyramid/Django-CRM.svg?branch=master
+             :target: https://travis-ci.org/MicroPyramid/Django-CRM
+             :alt: Travis
 
-.. image:: https://landscape.io/github/MicroPyramid/Django-CRM/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/MicroPyramid/Django-CRM/master
-   :alt: Code Health
+          .. image:: https://readthedocs.org/projects/django-crm/badge/?version=latest
+              :target: http://django-crm.readthedocs.io/en/latest/
+              :alt: Documentation Status
 
-.. image:: https://img.shields.io/github/license/MicroPyramid/Django-CRM.svg
-    :target: https://pypi.python.org/pypi/Django-CRM/
+      -  .. image:: https://api.codacy.com/project/badge/Grade/b11da5f09dd542479fd3bd53944595d2
+            :target: https://app.codacy.com/project/ashwin/Django-CRM/dashboard
+            :alt: Codacy Dashboard
+         .. image:: https://coveralls.io/repos/github/MicroPyramid/Django-CRM/badge.svg?branch=master
+            :target: https://coveralls.io/github/MicroPyramid/Django-CRM?branch=master
+            :alt: Codacy Coverage
 
-.. image:: https://www.codetriage.com/micropyramid/django-crm/badges/users.svg
-    :target: https://www.codetriage.com/micropyramid/django-crm
+      -  .. image:: https://img.shields.io/docker/automated/micropyramid/django-crm.svg
+            :target: https://github.com/MicroPyramid/Django-CRM
+            :alt: Docker Automated
+         .. image:: https://img.shields.io/docker/build/micropyramid/django-crm.svg
+            :target: https://github.com/MicroPyramid/Django-CRM
+            :alt: Docker Build Passing
+         .. image:: https://img.shields.io/docker/stars/micropyramid/django-crm.svg
+            :target: https://hub.docker.com/r/micropyramid/django-crm/
+            :alt: Docker Stars
+         .. image:: https://img.shields.io/docker/pulls/micropyramid/django-crm.svg
+            :target: https://hub.docker.com/r/micropyramid/django-crm/
+            :alt: Docker Pulls
+
+      -  .. image:: https://badges.gitter.im/Micropyramid/Django-CRM.png
+            :target: https://gitter.im/MicroPyramid/Django-CRM
+            :alt: Gitter
+         .. image:: https://www.codetriage.com/micropyramid/django-crm/badges/users.svg
+            :target: https://www.codetriage.com/micropyramid/django-crm
+            :alt: Code Helpers
+         .. image:: https://img.shields.io/github/license/MicroPyramid/Django-CRM.svg
+            :target: https://pypi.python.org/pypi/Django-CRM/
+         .. image:: https://opencollective.com/django-crm/backers/badge.svg
+            :alt: Backers on Open Collective
+            :target: #backers
+         .. image:: https://opencollective.com/django-crm/sponsors/badge.svg
+            :alt: Sponsors on Open Collective
+            :target: #sponsors
+
 
 http://django-crm.readthedocs.io for latest documentation
 
@@ -31,25 +68,79 @@ This project contains the following modules.
    * Opportunity
    * Planner
 
-Installation
-============
 
-If you cloned the package from git use virtualenv to install requirements::
+Try
+===
 
-    pip install -r requirements.txt
+Demo Available `here`_.
 
-Visit our Django web development page [Here](https://micropyramid.com/django-ecommerce-development/)
-
-`Demo`_ Available Here.
-
-Credentials to CRM Dashboard:
+Demo credentials for Django CRM:
 
   * **Email:** admin@micropyramid.com
   * **Password:** admin
 
 
-We welcome your feedback and support, raise github ticket if you want to report a bug. Need new features? `Contact us here`_
+Installation
+============
+
+* Install the dependencies
+
+   .. code-block:: python
+
+      pip install -r requirements.txt
+      cp crm/local_settings.example crm/local_settings.py
+      python manage.py makemigrations
+      python manage.py createsuperuser
+      python manage.py runserver
+
+  This will install all the required dependencies for django-crm.
+
+  Then update the local_settings.py file with your email host server credentials.
+
+   .. code-block:: python
+
+      EMAIL_HOST = <your email host>
+      EMAIL_HOST_USER = <your username>
+      EMAIL_HOST_PASSWORD = <your password>
+
+  These settings allow django-crm to send emails.
+  After this download and install the System Requirements.
+
+
+System Requirements
+===================
+
+- wkhtmltopdf (https://wkhtmltopdf.org/downloads.html)
+- sass (https://www.npmjs.com/package/sass) or (https://rubygems.org/gems/sass)
+
+Community
+=========
+
+Get help or stay up to date.
+
+- [Contribute on Issues](https://github.com/MicroPyramid/Django-CRM/issues)
+- Follow [@micropyramid](https://twitter.com/micropyramid) on Twitter
+- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/django-crm)
+- Chat with community [Gitter](https://gitter.im/MicroPyramid/Django-CRM)
+- For customisations, email django-crm@micropyramid.com
+
+Credits
++++++++
+
+Contributors
+------------
+
+This project exists thanks to all the people who contribute!
+
+.. image:: https://opencollective.com/django-crm/contributors.svg?width=890&button=false
+
+
+Feature requests and bug reports
+================================
+We welcome your feedback and support, raise github issue if you want to report a bug or request new feature. we are glad to help.
+
+Need additional commercial support? `Contact us here`_
 
 .. _contact us here: https://micropyramid.com/contact-us/
-.. _Demo: https://test-django-crm-app.herokuapp.com
 
+.. _here: https://django-crm.micropyramid.com/
