@@ -1,8 +1,9 @@
+=====
 Leads
-*****
+=====
 
 
-.. image:: screenshots/leadshome1.png
+.. image:: /_static/screenshots/leadshome1.png
 
 |  **Fig** Accounts Home Page
 
@@ -11,7 +12,7 @@ Leads
 
 |  Create a new Lead using the button on right corner ``+ Add New Lead``
 
-.. image:: screenshots/leadscreate.png
+.. image:: /_static/screenshots/leadscreate.png
 
 |  **Fig** Leads Create Page
 

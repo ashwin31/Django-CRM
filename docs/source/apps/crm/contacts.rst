@@ -1,11 +1,13 @@
+========
 Contacts
-********
+========
+
 
 |  Contacts can be created and can be assigned to Accounts
 
 
 
-.. image:: screenshots/contactshome1.png
+.. image:: /_static/screenshots/contactshome1.png
 
 |  **Fig** Contacts Home Page
 
@@ -14,7 +16,7 @@ Contacts
 
 |  Create a new Lead using the button on right corner ``+ Add New contact``
 
-.. image:: screenshots/contactscreate.png
+.. image:: /_static/screenshots/contactscreate.png
 
 |  **Fig** Contacts Create Page
 

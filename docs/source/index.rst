@@ -2,92 +2,59 @@
 Django CRM
 ==========
 
-Introduction:
-=============
+CRM and Marketing project in django:
+====================================
 
-Django CRM is opensourse CRM developed on django framework. It has all the basic features of CRM to start with. We welcome code contributions and feature requests via github.
+Django-CRM is a CRM and Marketing software for SMBs.  Opensourse CRM developed on django framework. It has all the basic features of CRM and Marketing to begin with and customise to meet industry needs.
 
+Features:
+
+Use Cases:
+
+We welcome code contributions, suggestions, and feature requests via github.
 Source Code is available in Micropyramid Repository() `Link <https://github.com/MicroPyramid/Django-CRM.git>`_.
-
-Tech stack used:
-================
-
-* Python >= 3.4
-* Django >= 2.0
-* Redis
-* django-simple-pagination
-
-Modules available in Django-CRM:
-================================
-
-User functionalites:
-********************
-.. toctree::
-   :maxdepth: 2
-
-   Login
-   Forget Password
-   Profile
-   Change Password
-
 
 Modules in crm:
 ***************
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
 
-  Accounts
-  Contacts
-  Leads
-  Opportunity
-  Cases
-  Documents
+  apps/crm/accounts.rst
+  apps/crm/contacts.rst
+  apps/crm/leads.rst
+  apps/crm/opportunity.rst
+  apps/crm/cases.rst
+  apps/crm/documents.rst
 
-Rules to follow:-
-=================
-|  1.writing test cases for the code
-|  2.test cases coverage percent should be above 90%
-
-
-
-Setup On Local System
-=====================
-
-On Windows
-**********
-
-On Ubuntu
-*********
-|  First Create a Virtual Environment in a local directory.
-|  Install Pip to install python packages.
-|  Then clone the source code from the repository `click here <https://github.com/MicroPyramid/Django-CRM.git>`_.
-|  Activate Virtual environment, then install the requirements.txt using the command 
-
-::
-
-  pip install -r requirements.txt
-
-|  Then execute 
-
-::
-
-  python manage.py runserver
-
-Now Go to browser, enter the url ``http://127.0.0.1:8000``
-
-Installation - Requirements
-===========================
-
-
-Ubuntu 64bit - 16.04
+Modules in Marketing:
 *********************
 
-|  $ sudo apt-get update && apt-get upgrade -y
-|  $ sudo apt-get install -y curl wget libpq-dev python3-dev gem ruby ruby-dev build-essential libssl-dev libffi-dev python-dev python-virtualenv python-pip git redis-server libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev tcl8.6-dev tk8.6-dev python-tk
-|  $ sudo gem install sass
+.. toctree::
+  :maxdepth: 1
 
-Visit our Django web development page [Here](https://micropyramid.com/django-ecommerce-development/)
+  apps/marketing/campaign.rst
+
+
+Internals
+*********
+
+.. toctree::
+  :maxdepth: 1
+
+  apps/internals/profile.rst
+  apps/internals/change_password
+  apps/internals/forgot_password
+
+
+First steps
+===========
+.. toctree::
+   :maxdepth: 1
+
+   setup/index
+   setup/configuration
+   setup/packages_used
 
 
 We welcome your feedback and support, raise github ticket if you want to report a bug or need new feature.
@@ -99,5 +66,3 @@ Need additional support? `Contact us here`_
     or
 
 mailto:: "hello@micropyramid.com"
-
-

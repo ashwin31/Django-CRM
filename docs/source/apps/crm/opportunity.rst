@@ -1,10 +1,12 @@
+===========
 Opportunity
-***********
+===========
+
 
 |  New Opportunities can be added and can be assigned to accounts and contacts.
 
 
-.. image:: screenshots/opportunityhome1.png
+.. image:: /_static/screenshots/opportunityhome1.png
 
 |  **Fig** Opportunity Home Page
 
@@ -14,7 +16,7 @@ Opportunity
 
 |  Create a new Lead using the button on right corner ``+ Add New Opportunity``
 
-.. image:: screenshots/opportunitycreate.png
+.. image:: /_static/screenshots/opportunitycreate.png
 
 |  **Fig** Opportunity Create Page
 
